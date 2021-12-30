@@ -15,3 +15,6 @@ spring:
           - Path=/api/items/**
         filters:
           - StripPrefix=2
+          - AddRequestHeader=token-request, 12345
+          - AddResponseHeader=token-response, 1234567890
+          - AddRequestParameter=nombre, zutjmx
