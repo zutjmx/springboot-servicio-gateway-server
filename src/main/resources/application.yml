@@ -44,3 +44,16 @@ spring:
           - AddRequestHeader=token-request, 12345
           - AddResponseHeader=token-response, 1234567890
           - AddRequestParameter=nombre, zutjmx
+      - id: servicio-oauth
+        uri: lb://servicio-oauth
+        predicates:
+          - Path=/api/security/**
+        filters:
+          - StripPrefix=2
+      - id: servicio-usuarios
+        uri: lb://servicio-usuarios
+        predicates:
+          - Path=/api/usuarios/**
+        filters:
+          - StripPrefix=2          
+          
